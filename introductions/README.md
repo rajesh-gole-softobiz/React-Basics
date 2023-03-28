@@ -42,3 +42,10 @@ App.js on the other hand has the root component of the react app because every v
 1. git works bad with a lot of files in repository. 
 2. Some packages are platform dependent. For example, development tools, such as `dart-sass`.
 3. If you commit node_modules it means any developer can change any dependency with ease (it's called “monkey patching”), and this definitely will lead to a problem: when you will update this changed dependency, old changes will be lost, and you have to solve that. 
+
+## Q2> what is rel="noopener noreferrer"?
+```<a href="https://www.kaiostech.com/store/" target="_blank" rel="noreferrer">
+  KaiStore
+</a>```
+rel="noopener" prevents the new page from being able to access the window.opener property and ensures it runs in a separate process.
+rel="noreferrer" has the same effect but also prevents the Referer header from being sent to the new page.
