@@ -1,0 +1,11 @@
+.body {
+    position: absolute;
+    top: 80px;
+    bottom: 80px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(251, 250, 249);
+    color: rgb(3, 3, 3);
+  }
+  
