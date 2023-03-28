@@ -11,15 +11,16 @@ function App() {
       name:"Amisha Sharma"
     }
   ]
+
+  const usersJSX = users.map((user)=>{
+    return (
+    <div id={`user-block-${user.id}`} key={user.id}>
+      <h1>{user.name}</h1>
+    </div>
+  )})
   return (
     <Fragment>
-      {
-        users.map((user)=>(
-          <div key={user.id}>
-            <h1>{user.name}</h1>
-          </div>
-        ))
-      }
+      { usersJSX }
     </Fragment>
   );
 }
