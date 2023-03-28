@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# Folder Structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+package.json => The package.json is used for more than dependencies - like defining project properties, description, author & license information, scripts, etc
+------------------------------------------
 
-## Available Scripts
+package-lock.json => The package-lock.json is solely used to lock dependencies to a specific version number.
+------------------------------------------
 
-In the project directory, you can run:
+.gitignore => which files we want to ignore while commit
+------------------------------------------
+src / 
+App.css => write style of app component
+------------------------------------------
+App.tsx => the main component, the one that represents your entire application
+------------------------------------------
+App.test.tsx => We write unit test cases
+------------------------------------------
+index.css =>  usually define global styles in index.css (like body style)
+------------------------------------------
+index.tsx => where you would usually mount/render your main react component (App.tsx) onto your “root” element
+------------------------------------------
+logo.svg => it's a svg logo
+------------------------------------------
+reportWebVitals.ts => The web-vitals library is a tiny (~1.5K, brotli'd), modular library for measuring all the Web Vitals metrics on real users, in a way that accurately matches how they're measured by Chrome and reported to other Google tools (e.g. Chrome User Experience Report, Page Speed Insights, Search Console's Speed Report)
+------------------------------------------
+setupTests.ts => All the unit test case setup files are started from here
+------------------------------------------
+public / manifest.json => it is called meta files. it stores small icons, display, theme color, background color
+------------------------------------------
+public / robots.txt => Web crawlers typically review a file called robots.txt. This is to suggest to crawlers what should or should be crawled, what specific crawler bots are allowed. 
 
-### `npm start`
+### Diference between App.tsx and index.tsx
+1. App is really just another component! index.js is the canonical file
+2. `index.js` is the traditional and actual entry point for all node apps. Here in React it just has code of what to render and where to render.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+App.js on the other hand has the root component of the react app because every view and component are handled with hierarchy in React, where <App /> is the top most component in the hierarchy. This gives you the feel that you maintain hierarchy in your code starting from `App.js`. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Q1> Why don't we push node_modules in git?
+1. git works bad with a lot of files in repository. 
+2. Some packages are platform dependent. For example, development tools, such as `dart-sass`.
+3. If you commit node_modules it means any developer can change any dependency with ease (it's called “monkey patching”), and this definitely will lead to a problem: when you will update this changed dependency, old changes will be lost, and you have to solve that. 
