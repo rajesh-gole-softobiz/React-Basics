@@ -11,6 +11,7 @@ function App() {
   const handleIncrement = () =>{
     setCount(count+1)
   }
+  const date = new Date()
   return (
     <>
     {console.log("rendering")}
@@ -18,6 +19,8 @@ function App() {
     <h1>Count: {count}</h1>
     <button onClick={handleIncrement}>Increment</button> &nbsp;
     <button onClick={()=>{setIsLoading(!loading)}}>Loading</button>
+    <h4>Date : {date.getDate()}-{date.getMonth()+1}-{date.getFullYear()}</h4>
+    <h3>Time : {date.toLocaleTimeString()}</h3>
     </>
   );
 }
