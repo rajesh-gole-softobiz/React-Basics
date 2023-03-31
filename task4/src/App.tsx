@@ -21,12 +21,12 @@ const App = () => {
 
   return (
     <>
-      <h3>Stopwatch</h3>
-      <div className="stopwatch-card">
-        <p>{timer}</p>
-        <div className="buttons">
-          <button onClick={handleStart}>Start</button>
-          <button onClick={handlePause}>Pause</button>
+      <h2>Stopwatch</h2>
+      <div>
+        <h3 style={{color:"red"}}>{timer}</h3>
+        <div>
+          <button onClick={handleStart}>Start</button> &nbsp;
+          <button onClick={handlePause}>Pause</button> &nbsp;
           <button onClick={handleReset}>Reset</button>
         </div>
       </div>
