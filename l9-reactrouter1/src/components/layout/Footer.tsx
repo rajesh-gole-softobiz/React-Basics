@@ -8,7 +8,7 @@ const Footer = () => {
         fontFamily: "Arial"
        }
   return (
-    <div>Footer</div>
+    <div style={footer}>Footer</div>
   )
 }
 
