@@ -1,39 +1,48 @@
-import React, { useState, useRef } from "react";
-
-const App = () => {
-  const [timer, setTimer] = useState(0);
-  const countRef = useRef<Timer>(null);
-
+import { useEffect, useState } from "react";
+const StopWatch = () => {
+  const [counter, setCounter] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
   const handleStart = () => {
-    countRef.current = setInterval(() => {
-      setTimer((timer) => timer + 1);
-    }, 1000);
+    setIsRunning(true);
   };
-
-  const handlePause = () => {
-    clearInterval(countRef.current);
+  const handleStop = () => {
+    setIsRunning(false);
   };
-
   const handleReset = () => {
-    clearInterval(countRef.current);
-    setTimer(0);
+    if (isRunning) {
+      setIsRunning(false);
+    }
+    setCounter(0);
   };
-
+  useEffect(() => {
+    let timeout: any;
+    if (isRunning) {
+      timeout = setTimeout(() => {
+        setCounter(counter + 1);
+      }, 1000);
+    }
+    return () => clearTimeout(timeout);
+  }, [isRunning, counter]);
+  console.log("counter =>", counter);
   return (
-    <div className="app">
-      <h3>Stopwatch</h3>
-      <div className="stopwatch-card">
-        <p>{timer}</p>
-        <div className="buttons">
-          <button onClick={handleStart}>Start</button>
-          <button onClick={handlePause}>Pause</button>
-          <button onClick={handleReset}>Reset</button>
-        </div>
+    <div>
+      <h1>Stopwatch = {counter}</h1>
+      <div>
+        {!isRunning ? (
+          <button disabled={isRunning} onClick={handleStart}>
+            Start
+          </button>
+        ) : (
+          <button disabled={!isRunning} onClick={handleStop}>
+            Stop
+          </button>
+        )}{" "}
+        &nbsp;&nbsp;
+        <button disabled={counter === 0} onClick={handleReset}>
+          Reset
+        </button>
       </div>
     </div>
   );
 };
-
-export default App;
-
-type Timer = any;
+export default StopWatch;
