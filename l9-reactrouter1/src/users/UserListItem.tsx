@@ -1,23 +1,24 @@
-import React from 'react'
-import { IUser } from '../interfaces/users'
-import UserListRow from './UserListRow';
+import React from "react";
+import { IUser } from "../interfaces/users";
+import UserListRow from "./UserListRow";
 
 const UserListItem = (props: propsType) => {
-    const {user} = props;
+  const { user } = props;
   return (
     <tr>
-        {/* <td>{user.id}</td>
+      {/* <td>{user.id}</td>
         <td>{user.name}</td>
         <td>{user.desc}</td> */}
-        {<UserListRow value={user.id}/>}
-        {<UserListRow value={user.name}/>}
-        {<UserListRow value={user.desc}/>}
+      {<UserListRow value={user.id} />}&nbsp;
+      {<UserListRow value={user.name} />}&nbsp;&nbsp;
+      {<UserListRow value={user.age} />}&nbsp;
+      {<UserListRow value={user.email} />}
     </tr>
-  )
-}
+  );
+};
 
-export default UserListItem
+export default UserListItem;
 
 interface propsType {
-    user: IUser
+  user: IUser;
 }
