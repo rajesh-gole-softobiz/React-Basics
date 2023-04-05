@@ -1,16 +1,17 @@
-import React from 'react'
-import { Outlet } from 'react-router'
-import Footer from '../components/layout/Footer'
-import Header from '../components/layout/Header'
+import React from "react";
+import { Outlet } from "react-router";
+import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
+import UserAuthHOC from "../components/UserAuthHOC";
 
 const Home = () => {
   return (
-    <div>
-        <Header/>
-        <Outlet/>
-        <Footer/>
-    </div>
-  )
-}
+    <UserAuthHOC>
+      <Header />
+      <Outlet />
+      <Footer />
+    </UserAuthHOC>
+  );
+};
 
-export default Home
+export default Home;

@@ -6,6 +6,7 @@ import Stopwatch from "./components/Stopwatch";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import Users from "./pages/Users";
 import UserAdd from "./pages/users/UserAdd";
 import UserEdit from "./pages/users/UserEdit";
@@ -20,6 +21,7 @@ const AppRoutes = () => {
         <Route path="stopwatch" element={<Stopwatch />} />
         <Route path="about" element={<About />} />
       </Route>
+      <Route path="login" element={<Login />} />
       <Route path="dashboard" element={<Dashboard />}>
         <Route path="" element={<Users />} />
         <Route path=":userId" element={<UserView />} />
