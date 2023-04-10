@@ -11,7 +11,7 @@ const inputStyle = {
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch: any = useDispatch<AppDispatch>();
 
   const handleSubmit = () => {
     if (email.trim() === "" || password.trim() === "") {
